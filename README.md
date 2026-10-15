@@ -100,7 +100,33 @@ Copy `.env.example` to `.env` or `.env.local` if you wish to configure optional 
 
 ## 🚢 Deployment Guide
 
-### Option 1: Vercel (Recommended)
+### Option 1: Netlify
+
+Netlify has native support for Next.js 16 App Router. A pre-configured [`netlify.toml`](./netlify.toml) is already included in the repository.
+
+#### Via Netlify Web Dashboard (Recommended)
+1. Push this repository to GitHub or GitLab.
+2. Log in to [app.netlify.com](https://app.netlify.com).
+3. Click **Add new site** > **Import an existing project** and select your GitHub repository.
+4. Netlify will automatically detect:
+   - **Build command**: `npm run build`
+   - **Publish directory**: `.next`
+5. (Optional) In **Site configuration** > **Environment variables**, add `DATABASE_URL` and `OPENAI_API_KEY`.
+6. Click **Deploy site**.
+
+#### Via Netlify CLI
+Run the following in your local terminal:
+```bash
+npx netlify deploy --build
+```
+For production release:
+```bash
+npx netlify deploy --prod --build
+```
+
+---
+
+### Option 2: Vercel
 
 Next.js is natively optimized for Vercel.
 
